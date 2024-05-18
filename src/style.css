@@ -1,0 +1,10 @@
+.active {
+    background-color: gray;
+    padding: 0.2rem 0.6rem;
+    color: white;
+    border-radius: 6px;
+}
+
+a {
+    text-decoration: none;
+}
