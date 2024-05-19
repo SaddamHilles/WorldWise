@@ -1,14 +1,14 @@
 import styles from './Message.module.css';
 
 interface Props {
-    message: string;
+  message: string;
 }
 function Message({ message }: Props) {
-    return (
-        <p className={styles.message}>
-            <span role="img">👋</span> {message}
-        </p>
-    );
+  return (
+    <p className={styles.message}>
+      <span role='img'>👋</span> {message}
+    </p>
+  );
 }
 
 export default Message;

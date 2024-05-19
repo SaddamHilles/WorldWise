@@ -5,28 +5,28 @@ import Spinner from '../Spinner/Spinner';
 import CountryItem from '../CountryItem/CountryItem';
 
 function CountryList() {
- const { countries, isLoading } = useCities();
+  const { countries, isLoading } = useCities();
 
- if (!countries.length) {
+  if (!countries.length) {
+    return (
+      <Message message='Add your first city by clicking on a city on the map' />
+    );
+  }
   return (
-   <Message message='Add your first city by clicking on a city on the map' />
+    <ul className={styles.countryList}>
+      {isLoading && <Spinner />}
+      {!isLoading &&
+        countries.map(country => (
+          <CountryItem
+            key={country.id}
+            country={{
+              country: country.country,
+              emoji: country.emoji,
+            }}
+          />
+        ))}
+    </ul>
   );
- }
- return (
-  <ul className={styles.countryList}>
-   {isLoading && <Spinner />}
-   {!isLoading &&
-    countries.map(country => (
-     <CountryItem
-      key={country.id}
-      country={{
-       country: country.country,
-       emoji: country.emoji,
-      }}
-     />
-    ))}
-  </ul>
- );
 }
 
 export default CountryList;

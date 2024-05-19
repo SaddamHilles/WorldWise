@@ -5,19 +5,19 @@ import Spinner from '../Spinner/Spinner';
 import styles from './CityList.module.css';
 
 function CityList() {
- const { cities, isLoading } = useCities();
+  const { cities, isLoading } = useCities();
 
- if (!cities.length) {
+  if (!cities.length) {
+    return (
+      <Message message='Add your first city by clicking on a city on the map' />
+    );
+  }
   return (
-   <Message message='Add your first city by clicking on a city on the map' />
+    <ul className={styles.cityList}>
+      {isLoading && <Spinner />}
+      {!isLoading && cities.map(city => <CityItem key={city.id} city={city} />)}
+    </ul>
   );
- }
- return (
-  <ul className={styles.cityList}>
-   {isLoading && <Spinner />}
-   {!isLoading && cities.map(city => <CityItem key={city.id} city={city} />)}
-  </ul>
- );
 }
 
 export default CityList;
