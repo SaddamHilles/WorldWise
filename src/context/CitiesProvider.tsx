@@ -10,28 +10,38 @@ import type { City, Country } from '../utils/types.t';
 
 const baseUrl = 'http://localhost:8000';
 
-interface WorldWise {
+interface Cities {
  cities: City[];
  isLoading: boolean;
  countries: Country[];
+ currentCity: number;
+ handleCurrentCity: (id: number) => void;
 }
 
-const initialState: WorldWise = { cities: [], countries: [], isLoading: false };
+// const initialState: Cities = { cities: [], countries: [], isLoading: false };
 
-const WorldWiseContext = createContext<WorldWise>(initialState);
+const CitiesContext = createContext<Cities>({} as Cities);
 
-const Provider: React.FC<PropsWithChildren> = ({ children }) => {
+const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
  const [cities, setCities] = useState<City[]>([]);
  const [countries, setCountries] = useState<Country[]>([]);
  const [isLoading, setIsLoading] = useState(false);
-
+ const [currentCity, setCurrentCity] = useState(0);
  // const uniqueCountriesMap = new Map();
+
+ function handleCurrentCity(id: number) {
+  setCurrentCity(id);
+ }
 
  useEffect(() => {
   (async function () {
    try {
     setIsLoading(true);
-    const { data } = await axios.get<City[]>(`${baseUrl}/cities`);
+    const { data, statusText } = await axios.get<City[]>(`${baseUrl}/cities`);
+
+    if (statusText !== 'OK') {
+     throw new Error('Something went wrong with fetch cities!');
+    }
     // data.forEach(city => {
     //     uniqueCountriesMap.set(city.country, {
     //         country: city.country,
@@ -58,6 +68,7 @@ const Provider: React.FC<PropsWithChildren> = ({ children }) => {
       ];
      }
     }, []);
+
     setCountries(countries);
     setCities(data);
    } catch (err) {
@@ -67,25 +78,25 @@ const Provider: React.FC<PropsWithChildren> = ({ children }) => {
   })();
  }, []);
 
- const contextData: WorldWise = {
+ const contextData: Cities = {
   cities,
   isLoading,
   countries,
+  handleCurrentCity,
+  currentCity,
  };
  return (
-  <WorldWiseContext.Provider value={contextData}>
+  <CitiesContext.Provider value={contextData}>
    {children}
-  </WorldWiseContext.Provider>
+  </CitiesContext.Provider>
  );
 };
 
-function useWordWise() {
- const ctxWorldWise = useContext(WorldWiseContext);
- if (!ctxWorldWise) {
-  throw new Error(
-   'WorldWise context was used outside of the WorldWiseProvider',
-  );
+function useCities() {
+ const ctxCities = useContext(CitiesContext);
+ if (!ctxCities) {
+  throw new Error('Cities context was used outside of the CitiesProvider');
  }
- return ctxWorldWise;
+ return ctxCities;
 }
-export { Provider, useWordWise };
+export { CitiesProvider, useCities };

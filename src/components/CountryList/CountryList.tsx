@@ -1,12 +1,11 @@
 import styles from './CountryList.module.css';
-import { useWordWise } from '../../context/Provider';
+import { useCities } from '../../context/CitiesProvider';
 import Message from '../Message/Message';
 import Spinner from '../Spinner/Spinner';
 import CountryItem from '../CountryItem/CountryItem';
 
 function CountryList() {
- const { countries, isLoading } = useWordWise();
- console.log('countries: ', countries);
+ const { countries, isLoading } = useCities();
 
  if (!countries.length) {
   return (

@@ -1,16 +1,14 @@
 import styles from './City.module.css';
 import { formatDate } from '../../utils/formatDate';
-import { useWordWise } from '../../context/Provider';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useCities } from '../../context/CitiesProvider';
+import { useParams } from 'react-router-dom';
+import BackButton from '../Button/BackButton';
 
 function City() {
- const { cities } = useWordWise();
+ const { cities } = useCities();
  const params = useParams();
- const [searchParams] = useSearchParams();
- const lat = searchParams.get('lat');
- const lng = searchParams.get('lng');
 
- const findCity = cities.find(city => city.id === Number(params.id));
+ const findCity = cities.find(city => Number(city.id) === Number(params.id));
 
  if (!findCity) {
   return <p>City Not Found!</p>;
@@ -47,10 +45,9 @@ function City() {
      Check out {cityName} on Wikipedia &rarr;
     </a>
    </div>
-   <p>
-    Position: {lat}, {lng}
-   </p>
-   <div>{/* <ButtonBack /> */}</div>
+   <div>
+    <BackButton />
+   </div>
   </div>
  );
 }

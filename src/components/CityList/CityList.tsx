@@ -1,11 +1,11 @@
-import { useWordWise } from '../../context/Provider';
+import { useCities } from '../../context/CitiesProvider';
 import CityItem from '../CityItem/CityItem';
 import Message from '../Message/Message';
 import Spinner from '../Spinner/Spinner';
 import styles from './CityList.module.css';
 
 function CityList() {
- const { cities, isLoading } = useWordWise();
+ const { cities, isLoading } = useCities();
 
  if (!cities.length) {
   return (
