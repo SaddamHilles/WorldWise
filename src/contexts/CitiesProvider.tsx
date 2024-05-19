@@ -18,8 +18,6 @@ interface Cities {
   handleCurrentCity: (id: number) => void;
 }
 
-// const initialState: Cities = { cities: [], countries: [], isLoading: false };
-
 const CitiesContext = createContext<Cities>({} as Cities);
 
 const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
@@ -27,7 +25,6 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [countries, setCountries] = useState<Country[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState(0);
-  // const uniqueCountriesMap = new Map();
 
   function handleCurrentCity(id: number) {
     setCurrentCity(id);
@@ -44,17 +41,6 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
         if (statusText !== 'OK') {
           throw new Error('Something went wrong with fetch cities!');
         }
-        // data.forEach(city => {
-        //     uniqueCountriesMap.set(city.country, {
-        //         country: city.country,
-        //         emoji: city.emoji,
-        //         id: city.id,
-        //     });
-        // });
-        // const uniqueCountriesArray = Array.from(
-        //     uniqueCountriesMap.values()
-        // );
-        // setCountries(uniqueCountriesArray as Country[]);
 
         const countries = data.reduce<Country[]>((arr, city) => {
           if (arr.some(item => item.country === city.country)) {
@@ -102,3 +88,16 @@ function useCities() {
   return ctxCities;
 }
 export { CitiesProvider, useCities };
+
+// const uniqueCountriesMap = new Map();
+// data.forEach(city => {
+//     uniqueCountriesMap.set(city.country, {
+//         country: city.country,
+//         emoji: city.emoji,
+//         id: city.id,
+//     });
+// });
+// const uniqueCountriesArray = Array.from(
+//     uniqueCountriesMap.values()
+// );
+// setCountries(uniqueCountriesArray as Country[]);
