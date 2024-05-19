@@ -1,5 +1,5 @@
 import styles from './CountryList.module.css';
-import { useCities } from '../../context/CitiesProvider';
+import { useCities } from '../../contexts/CitiesProvider';
 import Message from '../Message/Message';
 import Spinner from '../Spinner/Spinner';
 import CountryItem from '../CountryItem/CountryItem';

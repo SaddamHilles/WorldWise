@@ -1,6 +1,6 @@
 import styles from './City.module.css';
 import { formatDate } from '../../utils/formatDate';
-import { useCities } from '../../context/CitiesProvider';
+import { useCities } from '../../contexts/CitiesProvider';
 import { useParams } from 'react-router-dom';
 import BackButton from '../Button/BackButton';
 

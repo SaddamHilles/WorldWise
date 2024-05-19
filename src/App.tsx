@@ -10,7 +10,7 @@ import Form from './components/Form/Form';
 import CityList from './components/CityList/CityList';
 import CountryList from './components/CountryList/CountryList';
 import City from './components/City/City';
-import { CitiesProvider } from './context/CitiesProvider';
+import { CitiesProvider } from './contexts/CitiesProvider';
 // import AppLayout from './pages/AppLayout';
 const Homepage = lazy(() => import('./pages/Home/Homepage'));
 const Product = lazy(() => import('./pages/Product/Product'));

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { formatDate } from '../../utils/formatDate';
 import { City } from '../../utils/types.t';
 import styles from './CityItem.module.css';
-import { useCities } from '../../context/CitiesProvider';
+import { useCities } from '../../contexts/CitiesProvider';
 interface Props {
   city: City;
 }
