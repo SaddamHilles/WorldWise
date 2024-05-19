@@ -80,6 +80,12 @@ const Provider: React.FC<PropsWithChildren> = ({ children }) => {
 };
 
 function useWordWise() {
- return useContext(WorldWiseContext);
+ const ctxWorldWise = useContext(WorldWiseContext);
+ if (!ctxWorldWise) {
+  throw new Error(
+   'WorldWise context was used outside of the WorldWiseProvider',
+  );
+ }
+ return ctxWorldWise;
 }
 export { Provider, useWordWise };
