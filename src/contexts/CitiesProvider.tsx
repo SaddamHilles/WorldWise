@@ -8,14 +8,15 @@ import {
 } from 'react';
 import type { City, Country } from '../utils/types.t';
 
-const baseUrl = 'http://localhost:8000';
+export const baseUrl = 'http://localhost:8000';
 
 interface Cities {
   cities: City[];
   isLoading: boolean;
   countries: Country[];
-  currentCity: number;
-  handleCurrentCity: (id: number) => void;
+  currentCity: string;
+  handleCurrentCity: (id: string) => void;
+  refresh: () => void;
 }
 
 const CitiesContext = createContext<Cities>({} as Cities);
@@ -24,13 +25,12 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [cities, setCities] = useState<City[]>([]);
   const [countries, setCountries] = useState<Country[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState(0);
+  const [currentCity, setCurrentCity] = useState('');
 
-  function handleCurrentCity(id: number) {
+  function handleCurrentCity(id: string) {
     setCurrentCity(id);
   }
-
-  useEffect(() => {
+  function fetchCities() {
     (async function () {
       try {
         setIsLoading(true);
@@ -64,7 +64,14 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
         setIsLoading(false);
       }
     })();
+  }
+  useEffect(() => {
+    fetchCities();
   }, []);
+
+  function refresh() {
+    fetchCities();
+  }
 
   const contextData: Cities = {
     cities,
@@ -72,6 +79,7 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
     countries,
     handleCurrentCity,
     currentCity,
+    refresh,
   };
   return (
     <CitiesContext.Provider value={contextData}>

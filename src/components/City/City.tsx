@@ -8,7 +8,7 @@ function City() {
   const { cities } = useCities();
   const params = useParams();
 
-  const findCity = cities.find(city => Number(city.id) === Number(params.id));
+  const findCity = cities.find(city => city.id === params.id);
 
   if (!findCity) {
     return <p>City Not Found!</p>;

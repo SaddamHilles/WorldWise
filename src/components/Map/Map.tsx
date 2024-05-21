@@ -7,13 +7,13 @@ import ChangeCenterPosition from './ChangeCenterPosition';
 import DetectMapClick from './DetectMapClick';
 import { useGeolocation } from '../../hooks/useGeolocation';
 import Button from '../Button/Button';
+import { useUrlPostion } from '../../hooks/useUrlPostion';
 
 function Map() {
   const [mapPosition, setMapPosition] = useState<[number, number]>([40, 0]);
   const { cities } = useCities();
-  const [searchParams] = useSearchParams();
-  const lat = searchParams.get('lat');
-  const lng = searchParams.get('lng');
+  const [lat, lng] = useUrlPostion();
+
   const {
     position: geoLocationPosition,
     getPosition,

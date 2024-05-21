@@ -5,7 +5,7 @@ export type City = {
   date: Date;
   notes: string;
   position: { lat: number; lng: number };
-  id: number;
+  id: string;
 };
 
-export type Country = { country: string; emoji: string; id: number };
+export type Country = { country: string; emoji: string; id: string };
