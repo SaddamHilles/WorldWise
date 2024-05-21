@@ -3,6 +3,7 @@ import { createContext, useContext, useState } from 'react';
 export interface User {
   email: string;
   password: string;
+  avatar?: string;
 }
 interface Auth {
   user: User;
@@ -33,12 +34,12 @@ function AuthProvider({ children }: Props) {
       userInfo.email === FAKE_USER.email &&
       userInfo.password === FAKE_USER.password
     ) {
-      setUser(userInfo);
+      setUser({...userInfo, avatar: FAKE_USER.avatar});
       setIsAuth(true);
     }
   }
   function logout() {
-    setUser({ email: '', password: '' });
+    setUser({ email: '', password: '', avatar: '' });
     setIsAuth(false);
   }
   const auth: Auth = {

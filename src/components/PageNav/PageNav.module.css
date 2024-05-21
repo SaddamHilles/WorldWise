@@ -32,3 +32,8 @@ a.ctaLink:visited {
   padding: 0.8rem 2rem;
   border-radius: 7px;
 }
+
+.bgWhiteColoe{
+  background: #fff !important;
+  color: #000 !important;
+}
