@@ -1,4 +1,3 @@
-import { useSearchParams } from 'react-router-dom';
 import styles from './Map.module.css';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import { useEffect, useState } from 'react';

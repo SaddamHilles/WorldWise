@@ -29,7 +29,6 @@ function AuthProvider({ children }: Props) {
   const [isAuth, setIsAuth] = useState(false);
 
   function login(userInfo: User) {
-    console.log('userInfo: ', userInfo);
     if (
       userInfo.email === FAKE_USER.email &&
       userInfo.password === FAKE_USER.password

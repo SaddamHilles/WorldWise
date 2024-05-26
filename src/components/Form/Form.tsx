@@ -32,14 +32,6 @@ interface CityInfo {
   position: { lat: number; lng: number };
 }
 
-const initialCityInfo = {
-  city: '',
-  countryCode: '',
-  countryName: '',
-  notes: '',
-  date: new Date(),
-};
-
 function Form() {
   const { refresh } = useCities();
   const [lat, lng] = useUrlPostion();
@@ -63,7 +55,7 @@ function Form() {
       }
       postCity();
     } catch (er) {
-      console.log((er as AxiosError).message);
+      console.error((er as AxiosError).message);
     }
   }
 
@@ -76,8 +68,6 @@ function Form() {
           `${baseUrl}?latitude=${lat}&longitude=${lng}`,
         );
         const { city, countryCode, countryName, locality } = data;
-        console.log('locality: ', locality);
-        console.log('city: ', city);
 
         if (!city) {
           throw new Error(
