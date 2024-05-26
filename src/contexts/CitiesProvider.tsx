@@ -44,6 +44,7 @@ const CitiesProvider: React.FC<PropsWithChildren> = ({ children }) => {
 
         const countries = data.reduce<Country[]>((arr, city) => {
           if (arr.some(item => item.country === city.country)) {
+            console.log('city.country: ', city);
             return arr;
           } else {
             return [

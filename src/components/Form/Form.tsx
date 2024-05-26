@@ -25,7 +25,7 @@ const baseUrl = 'https://api.bigdatacloud.net/data/reverse-geocode-client';
 
 interface CityInfo {
   cityName: string;
-  countryName: string;
+  country: string;
   emoji: string;
   notes: string;
   date: Date;
@@ -87,7 +87,7 @@ function Form() {
 
         const newCity = {
           cityName: city || locality,
-          countryName,
+          country: countryName,
           emoji: countryCodeToEmoji(countryCode),
           notes: '',
           date,

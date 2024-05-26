@@ -18,8 +18,8 @@ interface Props {
 }
 
 const FAKE_USER = {
-  name: 'Jack',
-  email: 'jack@example.com',
+  name: 'Saddam',
+  email: 'saddam@example.com',
   password: 'qwerty',
   avatar: 'https://i.pravatar.cc/100?u=zz',
 };
@@ -34,7 +34,7 @@ function AuthProvider({ children }: Props) {
       userInfo.email === FAKE_USER.email &&
       userInfo.password === FAKE_USER.password
     ) {
-      setUser({...userInfo, avatar: FAKE_USER.avatar});
+      setUser({ ...userInfo, avatar: FAKE_USER.avatar });
       setIsAuth(true);
     }
   }

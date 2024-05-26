@@ -17,6 +17,7 @@ function CityItem({ city }: Props) {
     id: string,
   ) {
     e.stopPropagation();
+    e.preventDefault();
     await axios.delete(`${baseUrl}/cities/${id}`);
     refresh();
   }

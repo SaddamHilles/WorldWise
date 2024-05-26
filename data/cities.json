@@ -63,7 +63,7 @@
     {
       "id": "7a4a",
       "cityName": "Alexandria",
-      "countryName": "Egypt",
+      "country": "Egypt",
       "emoji": "🇪🇬",
       "notes": "يااااااا سلام ع بحر الاسكندرية",
       "date": "2024-05-20T06:35:45.396Z",
@@ -73,33 +73,9 @@
       }
     },
     {
-      "id": "8a2d",
-      "cityName": "Ash Shiḩaniyah",
-      "countryName": "Qatar",
-      "emoji": "🇶🇦",
-      "notes": "شعب الكرم",
-      "date": "2024-05-20T06:39:10.738Z",
-      "position": {
-        "lat": 25.245903270426194,
-        "lng": 51.27319335937501
-      }
-    },
-    {
-      "id": "68ec",
-      "cityName": "Ma'an",
-      "countryName": "Jordan",
-      "emoji": "🇯🇴",
-      "notes": "بليبلسي",
-      "date": "2024-05-20T06:40:53.630Z",
-      "position": {
-        "lat": 30.18369875909563,
-        "lng": 35.77148437500001
-      }
-    },
-    {
       "id": "474c",
       "cityName": "Landl",
-      "countryName": "Austria",
+      "country": "Austria",
       "emoji": "🇦🇹",
       "notes": "sfsdf",
       "date": "2024-05-20T06:47:54.357Z",
@@ -109,33 +85,9 @@
       }
     },
     {
-      "id": "9b1f",
-      "cityName": "Paris",
-      "countryName": "France",
-      "emoji": "🇫🇷",
-      "notes": "fdfg",
-      "date": "2024-05-20T06:48:13.565Z",
-      "position": {
-        "lat": 48.83944366539207,
-        "lng": 2.3455810546875004
-      }
-    },
-    {
-      "id": "99e5",
-      "cityName": "London",
-      "countryName": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "notes": "asd",
-      "date": "2024-05-20T06:51:46.426Z",
-      "position": {
-        "lat": 51.480622627440255,
-        "lng": -0.0439453125
-      }
-    },
-    {
       "id": "1842",
       "cityName": "Stockholm",
-      "countryName": "Sweden",
+      "country": "Sweden",
       "emoji": "🇸🇪",
       "notes": "اخوتي هناك",
       "date": "2024-05-20T19:34:30.061Z",
@@ -145,21 +97,9 @@
       }
     },
     {
-      "id": "233c",
-      "cityName": "Ash Shiḩaniyah",
-      "countryName": "Qatar",
-      "emoji": "🇶🇦",
-      "notes": "اوووووووف",
-      "date": "2024-05-20T20:24:28.129Z",
-      "position": {
-        "lat": 25.388701493644607,
-        "lng": 51.28604687118587
-      }
-    },
-    {
       "id": "fdf4",
       "cityName": "Gaza",
-      "countryName": "Palestine, State of",
+      "country": "Palestine, State of",
       "emoji": "🇵🇸",
       "notes": "بيتي",
       "date": "2024-05-20T20:25:15.193Z",
